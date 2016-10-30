@@ -6,11 +6,9 @@ const enable_collect_socket = require('./utils/enable_collect_socket')
 const graceful_shutdown = require('./utils/graceful_shutdown')
 
 let server = start_server(db, routes)
+enable_collect_socket(server)
 server.listen(config.app.port)
 console.log('sailors are docking on port %d', config.app.port)
-
-// collect socket, handle SIGTERM and shutdown gracefully
-enable_collect_socket(server)
 
 process.on('SIGTERM', () => {
   graceful_shutdown()
