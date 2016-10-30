@@ -1,0 +1,4 @@
+{
+	"plugins": ["flowtype"],
+  "extends": ["nukr-js"]
+}
