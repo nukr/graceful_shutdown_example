@@ -11,5 +11,5 @@ server.listen(config.app.port)
 console.log('sailors are docking on port %d', config.app.port)
 
 process.on('SIGTERM', () => {
-  graceful_shutdown()
+  graceful_shutdown(server)
 })
