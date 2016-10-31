@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "@nukr/multiconfig": "^0.1.4",
-    "path-to-regexp": "^1.6.0"
+    "@nukr/multiconfig": "^0.1.4"
   }
 }
