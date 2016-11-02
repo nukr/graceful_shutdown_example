@@ -4,8 +4,9 @@ module.exports = function router (routes) {
     if (routes[method][req.url]) {
       routes[method][req.url](req, res)
     } else {
-      res.write('not found', 404)
-      res.end()
+      setTimeout(() => {
+        res.end('doing something take long time ...')
+      }, 1000)
     }
   }
 }
