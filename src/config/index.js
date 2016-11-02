@@ -4,5 +4,6 @@ module.exports = multiconfig.default({
   app: {
     port: 3000
   },
-  sigterm: true
+  sigterm: true,
+  readiness_probe_delay: 4000
 })
