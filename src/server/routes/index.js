@@ -1,3 +1,5 @@
+const config = require('../../config')
+
 module.exports = {
   get: {
     '/readiness': get_readiness_handler,
@@ -9,19 +11,21 @@ let state = {
   is_shutdown: false
 }
 
-process.on('SIGTERM', function () {
-  state.is_shutdown = true
-})
+if (config.sigterm) {
+  process.on('SIGTERM', function () {
+    state.is_shutdown = true
+  })
+}
 
 function get_readiness_handler (req, res) {
   if (state.is_shutdown) {
-    res.write('server is going down', 500)
+    res.write('Me busy. Leave me alone!!', 500)
     res.end()
   } else {
-    res.end('hihi')
+    res.end('Ready to work.')
   }
 }
 
 function get_health_check_handler (req, res) {
-  res.end('ok')
+  res.end('Work, work.')
 }
