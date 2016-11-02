@@ -15,9 +15,6 @@ function check_todos (todos) {
 
 module.exports = function graceful_shutdown (server) {
   let todos = {
-    close_socket: {
-      done: false
-    },
     close_db: {
       done: false
     },
@@ -25,11 +22,6 @@ module.exports = function graceful_shutdown (server) {
       done: false
     }
   }
-  sockets.close(() => {
-    console.log('all socket closed')
-    todos.close_socket.done = true
-    check_todos(todos)
-  })
   db.close(() => {
     console.log('all db closed')
     todos.close_db.done = true
