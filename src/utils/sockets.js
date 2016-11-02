@@ -7,7 +7,9 @@ Socket.prototype.add = function add (key, value) {
 }
 
 Socket.prototype.each = function each (cb) {
-  Object.keys(this._sockets).forEach((key) => {
+  let sockets = Object.keys(this._sockets)
+  console.log(`destroying ${sockets.length} sockets`)
+  sockets.forEach((key) => {
     cb(this._sockets[key])
   })
 }

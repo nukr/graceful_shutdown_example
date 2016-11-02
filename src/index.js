@@ -15,6 +15,8 @@ console.log('sailors are docking on port %d', config.app.port)
 
 if (config.sigterm) {
   process.on('SIGTERM', () => {
-    graceful_shutdown(server)
+    setTimeout(() => {
+      graceful_shutdown(server)
+    }, config.readiness_probe_delay)
   })
 }
