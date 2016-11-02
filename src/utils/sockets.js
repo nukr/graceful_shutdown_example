@@ -14,6 +14,10 @@ Socket.prototype.each = function each (cb) {
   })
 }
 
+Socket.prototype.delete = function d (key) {
+  delete this._sockets[key]
+}
+
 Socket.prototype.close = function close (cb) {
   let done = true
   this.each((socket) => {
